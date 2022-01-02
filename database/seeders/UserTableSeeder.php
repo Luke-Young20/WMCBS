@@ -29,5 +29,13 @@ class UserTableSeeder extends Seeder
         $user2->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
         $user2->save();
 
+
+        $user3 = new User;
+        $user3->name = 'Luke Admin';
+        $user3->type = 'admin';
+        $user3->email = 'test11@gmail.com';
+        $user3->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
+        $user3->save();
+
     }
 }
