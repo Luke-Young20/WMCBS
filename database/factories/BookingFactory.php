@@ -15,7 +15,9 @@ class BookingFactory extends Factory
     {
         return [
             'booking_title' => $this->faker->numberBetween($min = 1, $max = 24),
-            'time_slot' => $this->faker->numberBetween($min = 1, $max = 24),
+            'start' =>$this->faker->date,
+            'end'=>$this->faker->date,
+           // 'time_slot' => $this->faker->numberBetween($min = 1, $max = 24),
             'user_id' => $this->faker->numberBetween($min = 1, $max = User::all()->count()),
             'room_number' => $this->faker->numberBetween($min = 1, $max = 10),
         ];
