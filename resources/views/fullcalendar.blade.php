@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Laravel Fullcalender Add/Update/Delete Event Example Tutorial - codingspoint.com</title>
+  <title>Calendar</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />

@@ -35,7 +35,7 @@ class FullCalendarEventMasterController extends Controller
         return  response()->json($event);
     }
      
- 
+    
     public function update(Request $request)
     {   
         $where = array('id' => $request->id);

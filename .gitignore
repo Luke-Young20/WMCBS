@@ -13,3 +13,9 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+diss-bookingSystem/vendor/bin/carbon
+diss-bookingSystem/vendor/bin/patch-type-declarations
+diss-bookingSystem/vendor/bin/php-parse
+diss-bookingSystem/vendor/bin/phpunit
+diss-bookingSystem/vendor/bin/psysh
+diss-bookingSystem/vendor/bin/var-dump-server
