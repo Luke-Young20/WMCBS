@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserTableSeeder extends Seeder
 {
@@ -14,7 +15,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $user1 = new User;
+/*         $user1 = new User;
         $user1->name = 'Luke no Admin';
         $user1->type = 'normal';
         $user1->email = 'test@gmail.com';
@@ -35,7 +36,15 @@ class UserTableSeeder extends Seeder
         $user3->type = 'admin';
         $user3->email = 'test11@gmail.com';
         $user3->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
-        $user3->save();
+        $user3->save(); */
+
+        User::create([
+            'name' => 'john smith',
+            'email' => 'johnsmith1@gmail.com',
+            'password' => Hash::make('yourpassword'),
+            //'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            //'remember_token' => str.random(10),
+        ]);
 
     }
 }
