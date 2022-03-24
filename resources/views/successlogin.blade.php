@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <title>Simple Login System in Laravel</title>
+  <title>You're logged in!</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -16,7 +16,7 @@
  <body>
   <br />
   <div class="container box">
-   <h3 align="center">Simple Login System in Laravel</h3><br />
+   <h3 align="center">Welcome to the calendar</h3><br />
 
    @if(isset(Auth::user()->email))
     <div class="alert alert-danger success-block">
