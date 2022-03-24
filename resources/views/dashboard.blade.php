@@ -5,6 +5,13 @@
         </h2>
     </x-slot>
 
+
+    <div class="flex items-center justify-end mt-4">
+        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('fullcalendar') }}">
+            {{ __('register?') }}
+        </a>
+    </div>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
