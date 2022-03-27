@@ -15,28 +15,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-/*         $user1 = new User;
-        $user1->name = 'Luke no Admin';
-        $user1->type = 'normal';
-        $user1->email = 'test@gmail.com';
-        $user1->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
-        $user1->save();
 
-
-        $user2 = new User;
-        $user2->name = 'Luke Admin';
-        $user2->type = 'admin';
-        $user2->email = 'test1@gmail.com';
-        $user2->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
-        $user2->save();
-
-
-        $user3 = new User;
-        $user3->name = 'Luke Admin';
-        $user3->type = 'admin';
-        $user3->email = 'test11@gmail.com';
-        $user3->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
-        $user3->save(); */
 
         User::create([
             'name' => 'john smith',
@@ -45,6 +24,24 @@ class UserTableSeeder extends Seeder
             //'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             //'remember_token' => str.random(10),
         ]);
+
+        {
+            $user1 = new User;
+            $user1->name = 'Luke no Admin';
+            $user1->type = 'normal';
+            $user1->email = 'test@gmail.com';
+            $user1->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'; //password
+            $user1->save();
+    
+    
+            $user2 = new User;
+            $user2->name = 'Luke Admin';
+            $user2->type = 'admin';
+            $user2->email = 'test1@gmail.com';
+            $user2->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'; //password
+            $user2->save();
+    
+        }
 
     }
 }

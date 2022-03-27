@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
-
+use Auth;
 class EventController extends Controller
 {
     public function index(Request $request)
     {
-  
+
         if($request->ajax()) {
        
              $data = Event::whereDate('start', '>=', $request->start)
@@ -24,7 +24,7 @@ class EventController extends Controller
  
     public function manageEvent(Request $request)
     {
- 
+
         switch ($request->type) {
             case 'add':
                 $event = Event::create([

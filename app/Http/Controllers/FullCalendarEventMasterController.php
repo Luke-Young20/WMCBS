@@ -6,12 +6,13 @@ use App\Models\Event;
 use Illuminate\Http\Request;
 use Redirect;
 use Response;
-
+use Auth;
 class FullCalendarEventMasterController extends Controller
 {
  
     public function index()
     {
+      
         if(request()->ajax()) 
         {
  
@@ -22,7 +23,7 @@ class FullCalendarEventMasterController extends Controller
          return response()->json($data);
         }
         return view('fullcalendar');
-    }
+    } 
     
    
     public function create(Request $request)
