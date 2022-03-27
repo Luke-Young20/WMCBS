@@ -1,7 +1,7 @@
 
 <html>
     <head>
-        <title>App Name - @yield('title')</title>
+        <title>Rooms - @yield('title')</title>
     </head>
     <body>
 
@@ -15,8 +15,8 @@
 
             <tr>
                 <th>Rooms</th>
-           
             </tr>
+            
             <tr>
                 <td><a href="fullcalendareventmaster">Room 1</a></td>
                 <td><a href="fullcalendareventmaster">Room 3</a></td>

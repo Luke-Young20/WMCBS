@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FullCalendarEventMasterController;
+use App\Http\Controllers\FullCalendarEventMasterController1;
 use App\Http\Controllers\MainController;
 
 
@@ -24,7 +25,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('greeting', function () {
+Route::get('rooms', function () {
     return view('rooms');
 });
 
