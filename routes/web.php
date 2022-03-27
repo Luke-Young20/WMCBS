@@ -24,6 +24,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('greeting', function () {
+    return view('rooms');
+});
+
 require __DIR__.'/auth.php';
 
 //fullcalender
@@ -34,6 +38,7 @@ Route::get('/fullcalendareventmaster', [FullCalendarEventMasterController::class
 Route::post('/fullcalendareventmaster/create',[FullCalendarEventMasterController::class, 'create']);
 Route::post('/fullcalendareventmaster/update',[FullCalendarEventMasterController::class, 'update']);
 Route::post('/fullcalendareventmaster/delete',[FullCalendarEventMasterController::class, 'destroy']);
+
 Route::get('/main', [MainController::class, 'index']);
 Route::post('/main/checklogin', [MainController::class, 'checklogin']);
 Route::get('main/successlogin', [MainController::class, 'successlogin']);
