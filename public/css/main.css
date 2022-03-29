@@ -1,0 +1,24 @@
+body {
+    text-align: center;
+    margin: 50;
+    background: lightblue;
+}
+
+td {
+    border-left: black;
+    border-right: black;
+    border-style: solid;
+    padding: 4px;
+}
+th {
+    border-left: black;
+    border-right: black;
+    border-style: solid;
+}
+table {
+    font-size: 105px;
+    text-align: center;
+}
+td:hover {
+    background-color: coral;
+}

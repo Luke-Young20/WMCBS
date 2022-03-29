@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
 <head>
   <title>Calendar</title>
@@ -106,4 +106,4 @@
     setInterval(function() { $(".success").fadeOut(); }, 1000);
   }
 </script>
-</html>
+</html> --}}

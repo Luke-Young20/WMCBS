@@ -14,6 +14,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     You're logged in!
+                    <button 
+    type="button" 
+    class="rounded-md bg-red-500 text-white focus:ring-red-600 px-4 py-2 text-sm">Danger</button>
                     
                 </div>
             </div>

@@ -1,7 +1,7 @@
-
 <html>
     <head>
         <title>Rooms - @yield('title')</title>
+        <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
     </head>
     <body>
 
@@ -18,7 +18,7 @@
             </tr>
             
             <tr>
-                <td><a href="fullcalendareventmaster">Room 1</a></td>
+                <td><a href="fullcalendar">Room 1</a></td>
                 <td><a href="fullcalendareventmaster">Room 3</a></td>
                 <td><a href="fullcalendareventmaster">Room 5</a></td>
               </tr>
@@ -32,31 +32,3 @@
         </div>
     </body>
 </html>
-<style>
-    body {
-        text-align: center;
-        margin: 50;
-        background: lightblue;
-        
-    }
-
-    td{
-
-        border-left: black;
-        border-right: black;
-        border-style: solid;
-        padding: 4px;
-        
-    }
-    th{
-
-        border-left: black;
-        border-right: black;
-        border-style: solid;
-    }
-    table{
-        font-size: 105px;
-        text-align: center;    
-    }
-    td:hover {background-color: coral;}
-    </style>
