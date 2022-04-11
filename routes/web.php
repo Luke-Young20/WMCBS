@@ -33,17 +33,17 @@ Route::get('rooms', function () {
 require __DIR__.'/auth.php';
 
 //fullcalender
-Route::get('fullcalender', [FullCalenderController::class, 'index']);
-Route::post('fullcalenderAjax', [FullCalenderController::class, 'ajax']);
+//Route::get('fullcalender', [FullCalenderController::class, 'index']);
+//Route::post('fullcalenderAjax', [FullCalenderController::class, 'ajax']);
 
-Route::get('/fullcalendareventmaster', [FullCalendarEventMasterController::class, 'index']);
-Route::post('/fullcalendareventmaster/create',[FullCalendarEventMasterController::class, 'create']);
-Route::post('/fullcalendareventmaster/update',[FullCalendarEventMasterController::class, 'update']);
-Route::post('/fullcalendareventmaster/delete',[FullCalendarEventMasterController::class, 'destroy']);
+//Route::get('/fullcalendareventmaster', [FullCalendarEventMasterController::class, 'index']);
+//Route::post('/fullcalendareventmaster/create',[FullCalendarEventMasterController::class, 'create']);
+//Route::post('/fullcalendareventmaster/update',[FullCalendarEventMasterController::class, 'update']);
+//Route::post('/fullcalendareventmaster/delete',[FullCalendarEventMasterController::class, 'destroy']);
 
 Route::get('fullcalendar', [FullCalendarController::class, 'index']);
 
-Route::post('fullcalendar/action', [FullCalendarController::class, 'action']);
+Route::post('fullcalendar/action', [FullCalendarController::class, 'action']); 
 
 
 Route::get('fullcalendar1', [FullCalendarController1::class, 'index']);

@@ -13,6 +13,6 @@ class BookingTableSeeder extends Seeder
      */
     public function run()
     {
-        $bookings = Booking::factory()->count(10)->create();
+       // $bookings = Booking::factory()->count(10)->create();
     }
 }

@@ -19,11 +19,11 @@
             
             <tr>
                 <td><a href="fullcalendar">Room 1</a></td>
-                <td><a href="fullcalendareventmaster">Room 3</a></td>
+                <td><a href="fullcalendar1">Room 3</a></td>
                 <td><a href="fullcalendareventmaster">Room 5</a></td>
               </tr>
               <tr>
-                <td><a href="fullcalendareventmaster">Room 2</a></td>
+                <td><a href="fullcalendar1">Room 2</a></td>
                 <td><a href="fullcalendareventmaster">Room 4</a></td>
                 <td><a href="fullcalendareventmaster">Room 6</a></td>
               </tr>

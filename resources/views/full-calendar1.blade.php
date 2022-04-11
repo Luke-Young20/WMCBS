@@ -3,22 +3,23 @@
 <head>
     <title>How to Use Fullcalendar in Laravel 8</title>
     
-    <meta name="csrf-token" content1="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    
 </head>
 <body>
   
 <div class="container">
     <br />
-    <h1 class="text-center"><u>Swansea University: Room 2 Booking System</u></h1>
+    <h1 class="text-center"><u>Room Booking System 2</u></h1>
     <br />
 
-    <div id="calendar1"></div> 
+    <div id="calendar"></div> 
 
 </div>
    
@@ -28,18 +29,18 @@ $(document).ready(function () {
 
     $.ajaxSetup({
         headers:{
-            'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content1')
+            'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
         }
     });
 
-    var calendar1 = $('#calendar1').fullCalendar({
+    var calendar = $('#calendar').fullCalendar({
         editable:true,
         header:{
             left:'prev,next today',
             center:'title',
             right:'month,agendaWeek,agendaDay'
         },
-        events:'/fullcalendar1',
+        events:'/fullcalendar',
         selectable:true,
         selectHelper: true,
         select:function(start, end, allDay)
@@ -53,7 +54,7 @@ $(document).ready(function () {
                 var end = $.fullCalendar.formatDate(end, 'Y-MM-DD HH:mm:ss');
 
                 $.ajax({
-                    url:"/fullcalendar1/action",
+                    url:"/fullcalendar/action",
                     type:"POST",
                     data:{
                         title: title,
@@ -63,7 +64,7 @@ $(document).ready(function () {
                     },
                     success:function(data)
                     {
-                        calendar1.fullCalendar('refetchEvents');
+                        calendar.fullCalendar('refetchEvents');
                         alert("Event Created Successfully");
                     }
                 })
@@ -77,8 +78,9 @@ $(document).ready(function () {
             var title = event.title;
             var id = event.id;
             $.ajax({
-                url:"/fullcalendar1/action",
+                url:"/fullcalendar/action",
                 type:"POST",
+                eventOverlap: true,
                 data:{
                     title: title,
                     start: start,
@@ -88,7 +90,8 @@ $(document).ready(function () {
                 },
                 success:function(response)
                 {
-                    calendar1.fullCalendar('refetchEvents');
+                    $('#calendar').fullCalendar('updateEvent', event);
+
                     alert("Event resize test Successfully");
                 }
             })
@@ -100,7 +103,7 @@ $(document).ready(function () {
             var title = event.title;
             var id = event.id;
             $.ajax({
-                url:"/fullcalendar1/action",
+                url:"/fullcalendar/action",
                 type:"POST",
                 data:{
                     title: title,
@@ -111,7 +114,7 @@ $(document).ready(function () {
                 },
                 success:function(response)
                 {
-                    calendar1.fullCalendar('refetchEvents');
+                    calendar.fullCalendar('refetchEvents');
                     alert("Event Updated Successfully");
                 }
             })
@@ -123,7 +126,7 @@ $(document).ready(function () {
             {
                 var id = event.id;
                 $.ajax({
-                    url:"/fullcalendar1/action",
+                    url:"/fullcalendar/action",
                     type:"POST",
                     data:{
                         id:id,
@@ -131,7 +134,7 @@ $(document).ready(function () {
                     },
                     success:function(response)
                     {
-                        calendar1.fullCalendar('refetchEvents');
+                        calendar.fullCalendar('refetchEvents');
                         alert("Event Deleted Successfully");
                     }
                 })

@@ -15,7 +15,7 @@
   
 <div class="container">
     <br />
-    <h1 class="text-center"><u>Swansea University: Room Booking System</u></h1>
+    <h1 class="text-center"><u>Room Booking System</u></h1>
     <br />
 
     <div id="calendar"></div> 

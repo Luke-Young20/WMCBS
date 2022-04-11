@@ -6,15 +6,16 @@ use Illuminate\Http\Request;
 
 use App\Models\Event;
 
-class FullCalendarController1 extends Controller
-{
+class FullCalendarController1 extends Controller {
+	
+	
     public function index(Request $request)
     {
     	if($request->ajax())
     	{
     		$data = Event::whereDate('start', '>=', $request->start)
                        ->whereDate('end',   '<=', $request->end)
-                       ->get(['id', 'title', 'start', 'end']);
+                       ->get(['id', 'title', 'start', 'end', 'room']);
             return response()->json($data);
     	}
     	return view('full-calendar1');
@@ -29,7 +30,8 @@ class FullCalendarController1 extends Controller
     			$event = Event::create([
     				'title'		=>	$request->title,
     				'start'		=>	$request->start,
-    				'end'		=>	$request->end
+    				'end'		=>	$request->end,
+					'room'		=>	$request->room
     			]);
 
     			return response()->json($event);
