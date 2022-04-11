@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+
+
 </head>
 <body>
   
@@ -88,8 +90,9 @@ $(document).ready(function () {
                 },
                 success:function(response)
                 {
-                    calendar.fullCalendar('refetchEvents');
-                    alert("Event resize test Successfully");
+                    $('#calendar').fullCalendar('updateEvent', event);
+
+                    alert("Event resize testdvsdfv Successfully");
                 }
             })
         },
@@ -111,7 +114,7 @@ $(document).ready(function () {
                 },
                 success:function(response)
                 {
-                    calendar.fullCalendar('refetchEvents');
+                    $('#calendar').fullCalendar('updateEvent', event);
                     alert("Event Updated Successfully");
                 }
             })
