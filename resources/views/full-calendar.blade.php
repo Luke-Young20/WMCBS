@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>How to Use Fullcalendar in Laravel 8</title>
+    <title>Calendar</title>
     
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
@@ -24,7 +24,6 @@
     <br />
 
     <div id="calendar"></div> 
-
 </div>
    
 <script>
@@ -50,6 +49,7 @@ $(document).ready(function () {
         select:function(start, end, allDay)
         {
             var title = prompt('Event Title:');
+            var room = prompt('Enter Room');
 
             if(title)
             {
@@ -62,6 +62,7 @@ $(document).ready(function () {
                     type:"POST",
                     data:{
                         title: title,
+                        room: room,
                         start: start,
                         end: end,
                         type: 'add'
@@ -80,12 +81,14 @@ $(document).ready(function () {
             var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
             var end = $.fullCalendar.formatDate(event.end, 'Y-MM-DD HH:mm:ss');
             var title = event.title;
+            var room = event.room;
             var id = event.id;
             $.ajax({
                 url:"/fullcalendar/action",
                 type:"POST",
                 data:{
                     title: title,
+                    room: room,
                     start: start,
                     end: end,
                     id: id,
@@ -95,7 +98,7 @@ $(document).ready(function () {
                 {
                     $('#calendar').fullCalendar('updateEvent', event);
 
-                    alert("Event resize testdvsdfv Successfully");
+                    alert("Event resized Successfully");
                 }
             })
         },
@@ -104,12 +107,14 @@ $(document).ready(function () {
             var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
             var end = $.fullCalendar.formatDate(event.end, 'Y-MM-DD HH:mm:ss');
             var title = event.title;
+            var room = event.room;
             var id = event.id;
             $.ajax({
                 url:"/fullcalendar/action",
                 type:"POST",
                 data:{
                     title: title,
+                    room: room,
                     start: start,
                     end: end,
                     id: id,

@@ -17,7 +17,19 @@ class EventTableSeeder extends Seeder
         $testEvent->title = 'TEST EVENT HARDCODED';
         $testEvent->start = '2022-04-13 10:00:00';
         $testEvent->end = '2022-04-14 10:00:00';
+        $testEvent->room ='1';
+        $testEvent->save();
+
+    
+
+    
+        $testEvent = new Event;
+        $testEvent->title = 'TEST EVENT HARDCODED';
+        $testEvent->start = '2022-04-15 10:00:00';
+        $testEvent->end = '2022-04-15 12:00:00';
+        $testEvent->room ='1';
         $testEvent->save();
 
     }
+
 }

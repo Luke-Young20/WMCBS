@@ -15,8 +15,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //Eloquent::unguard();
-        $this->call(EventTableSeeder::class);
         $this->call(RoomTableSeeder::class);
+        $this->call(EventTableSeeder::class);
+
         $this->call(UserTableSeeder::class);
         $this->call(BookingTableSeeder::class);
     }

@@ -9,7 +9,13 @@ class Event extends Model
 {
     use HasFactory;
   
+    public function room()
+    {
+        return $this->belongsTo('App\Models\Room');
+    }
+
     protected $fillable = [
-        'title', 'start', 'end', 'room'
+        'title', 'start', 'end', 'room',
     ];
+    
 }

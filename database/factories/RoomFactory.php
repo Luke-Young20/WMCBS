@@ -14,7 +14,7 @@ class RoomFactory extends Factory
     public function definition()
     {
         return [
-            'room_number' => $this->faker->unique->numberBetween($min = 1, $max = 10),
+            'id' => $this->faker->unique->numberBetween($min = 1, $max = 6),
         ];
     }
 }
