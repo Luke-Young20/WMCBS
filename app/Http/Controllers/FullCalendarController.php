@@ -8,17 +8,18 @@ use App\Models\Event;
 
 class FullCalendarController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, $id)
     {
     	if($request->ajax())
     	{
     		$data = Event::whereDate('start', '>=', $request->start)
                        ->whereDate('end',   '<=', $request->end)
+					   ->where('room', '=', $id)
                        ->get(['id', 'title', 'room', 'start', 'end']);
             return response()->json($data);
     	}
 
-    	return view('full-calendar');
+    	return view('full-calendar', ['id' => $id]);
     }
 
     public function action(Request $request)

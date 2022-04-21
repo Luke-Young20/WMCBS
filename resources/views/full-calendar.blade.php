@@ -43,11 +43,13 @@ $(document).ready(function () {
             center:'title',
             right:'month,agendaWeek,agendaDay'
         },
-        events:'/fullcalendar',
+        events:'/fullcalendar/{{ $id }}',
         selectable:true,
         selectHelper: true,
+        eventOverlap: false,
         select:function(start, end, allDay)
         {
+            
             var title = prompt('Event Title:');
             var room = prompt('Enter Room');
 
@@ -76,6 +78,7 @@ $(document).ready(function () {
             }
         },
         editable:true,
+        eventOverlap: false,
         eventResize: function(event, delta)
         {
             var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
@@ -102,6 +105,7 @@ $(document).ready(function () {
                 }
             })
         },
+        eventOverlap: false,
         eventDrop: function(event, delta)
         {
             var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
@@ -127,7 +131,7 @@ $(document).ready(function () {
                 }
             })
         },
- 
+        eventOverlap: false,
         eventClick:function(event)
         {
             if(confirm("Are you sure you want to remove it?"))
