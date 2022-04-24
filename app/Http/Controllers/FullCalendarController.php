@@ -67,14 +67,16 @@ class FullCalendarController extends Controller
 
     		if($request->type == 'delete')
     		{
-/* 				if($event->userid == Auth::id() OR Auth::user()->type == 'admin') {
- */    			$event = Event::find($request->id)->delete();
+ 				if(Auth::user()->type == 'admin') {
+     			$event = Event::find($request->id)->delete();
 			
     			return response()->json($event);
 
-/* 				} else {
-					return response()->('message', 'You cannot delete this as it is not your event');
-				} */
+				} else {
+					 alert("You cannot delete this as it is not your event");
+
+					//return response('You cannot delete this as it is not your event');
+				} 
 
 			}
     	}

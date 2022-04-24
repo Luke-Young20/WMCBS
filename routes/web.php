@@ -41,7 +41,7 @@ require __DIR__.'/auth.php';
 //Route::post('/fullcalendareventmaster/update',[FullCalendarEventMasterController::class, 'update']);
 //Route::post('/fullcalendareventmaster/delete',[FullCalendarEventMasterController::class, 'destroy']);
 
-Route::get('fullcalendar/{id}', [FullCalendarController::class, 'index']);
+Route::get('fullcalendar/{id}', [FullCalendarController::class, 'index']); /*->middleware(['auth']);*/
 
 Route::post('fullcalendar/action', [FullCalendarController::class, 'action']); 
 
