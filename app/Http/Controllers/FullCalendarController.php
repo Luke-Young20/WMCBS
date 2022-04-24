@@ -5,17 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Event;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class FullCalendarController extends Controller
 {
     public function index(Request $request, $id)
     {
+		//$userid = Auth::id();
+
     	if($request->ajax())
     	{
     		$data = Event::whereDate('start', '>=', $request->start)
                        ->whereDate('end',   '<=', $request->end)
 					   ->where('room', '=', $id)
-                       ->get(['id', 'title', 'room', 'start', 'end']);
+					  // ->where('userid', '=', $userid)
+                       ->get(['id', 'title', 'room', /*'userid', */'start', 'end']);
             return response()->json($data);
     	}
 
@@ -24,6 +29,8 @@ class FullCalendarController extends Controller
 
     public function action(Request $request)
     {
+		//$userid = Auth::id();
+
     	if($request->ajax())
     	{
     		if($request->type == 'add')
@@ -31,6 +38,7 @@ class FullCalendarController extends Controller
     			$event = Event::create([
     				'title'		=>	$request->title,
 					'room'		=>  $request->room,
+					//'userid'	=>  $userid,
     				'start'		=>	$request->start,
     				'end'		=>	$request->end
     			]);
@@ -40,23 +48,35 @@ class FullCalendarController extends Controller
 
     		if($request->type == 'update')
     		{
+/* 				if($event->userid == Auth::id() OR Auth::user()->type == 'admin') {
+ */ 
     			$event = Event::find($request->id)->update([
     				'title'		=>	$request->title,
 					'room'		=>  $request->room,
+					//'userid'	=>  $userid,
     				'start'		=>	$request->start,
     				'end'		=>	$request->end
     			]);
 
     			return response()->json($event);
+				/* 				} else {
+					return response()->('message', 'You cannot update this as it is not your event');
+				} */
 				
     		}
 
     		if($request->type == 'delete')
     		{
-    			$event = Event::find($request->id)->delete();
-
+/* 				if($event->userid == Auth::id() OR Auth::user()->type == 'admin') {
+ */    			$event = Event::find($request->id)->delete();
+			
     			return response()->json($event);
-    		}
+
+/* 				} else {
+					return response()->('message', 'You cannot delete this as it is not your event');
+				} */
+
+			}
     	}
     }
 }

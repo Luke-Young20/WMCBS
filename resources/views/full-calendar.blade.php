@@ -50,10 +50,12 @@ $(document).ready(function () {
         selectOverlap: false,
         select:function(start, end, allDay)
         {
+
+            
             
             var title = prompt('Event Title:');
             var room = prompt('Enter Room');
-
+           /*  var userid = event.userid; */
             if(title)
             {
                 var start = $.fullCalendar.formatDate(start, 'Y-MM-DD HH:mm:ss');
@@ -66,6 +68,7 @@ $(document).ready(function () {
                     data:{
                         title: title,
                         room: room,
+                        /* userid: userid, */
                         start: start,
                         end: end,
                         type: 'add'
@@ -88,12 +91,16 @@ $(document).ready(function () {
             var title = event.title;
             var room = event.room;
             var id = event.id;
+            /* var userid = event.userid; */
+
             $.ajax({
                 url:"/fullcalendar/action",
                 type:"POST",
                 data:{
                     title: title,
                     room: room,
+               /*      userid: userid, */
+
                     start: start,
                     end: end,
                     id: id,
@@ -116,12 +123,15 @@ $(document).ready(function () {
             var title = event.title;
             var room = event.room;
             var id = event.id;
+        /*     var userid = event.userid; */
             $.ajax({
                 url:"/fullcalendar/action",
                 type:"POST",
                 data:{
                     title: title,
                     room: room,
+           /*          userid: userid, */
+
                     start: start,
                     end: end,
                     id: id,

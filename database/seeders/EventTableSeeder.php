@@ -14,22 +14,24 @@ class EventTableSeeder extends Seeder
     public function run()
     {
         $testEvent = new Event;
-        $testEvent->title = 'TEST EVENT HARDCODED';
+        $testEvent->title = 'TEST EVENT HARDCODED ADMIN';
         $testEvent->start = '2022-04-13 10:00:00';
         $testEvent->end = '2022-04-14 10:00:00';
         $testEvent->room ='1';
+        $testEvent->userid ='3';
         $testEvent->save();
 
     
 
     
         $testEvent = new Event;
-        $testEvent->title = 'TEST EVENT HARDCODED';
+        $testEvent->title = 'TEST EVENT HARDCODED NORMAL USER';
         $testEvent->start = '2022-04-15 10:00:00';
         $testEvent->end = '2022-04-15 12:00:00';
         $testEvent->room ='1';
+        $testEvent->userid ='1';
         $testEvent->save();
-
+ 
     }
 
 }

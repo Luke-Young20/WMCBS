@@ -14,8 +14,13 @@ class Event extends Model
         return $this->belongsTo('App\Models\Room');
     }
 
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
     protected $fillable = [
-        'title', 'start', 'end', 'room',
+        'title', 'start', 'end', 'room', 
     ];
     
 }
