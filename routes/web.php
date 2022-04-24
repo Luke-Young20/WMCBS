@@ -46,11 +46,6 @@ Route::get('fullcalendar/{id}', [FullCalendarController::class, 'index']);
 Route::post('fullcalendar/action', [FullCalendarController::class, 'action']); 
 
 
-Route::get('fullcalendar1', [FullCalendarController1::class, 'index']);
-
-Route::post('fullcalendar1/action', [FullCalendarController1::class, 'action']);
-
-
 
 Route::get('/main', [MainController::class, 'index']);
 Route::post('/main/checklogin', [MainController::class, 'checklogin']);

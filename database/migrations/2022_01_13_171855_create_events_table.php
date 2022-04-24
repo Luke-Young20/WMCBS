@@ -19,7 +19,7 @@ class CreateEventsTable extends Migration
             $table->dateTime('start');
             $table->dateTime('end');
             //$table->int('room');
-           $table->bigInteger('room')->unsigned();
+            $table->bigInteger('room')->unsigned();
             $table->timestamps();
 
             $table->foreign('room')->references('id')->on('rooms')

@@ -47,6 +47,7 @@ $(document).ready(function () {
         selectable:true,
         selectHelper: true,
         eventOverlap: false,
+        selectOverlap: false,
         select:function(start, end, allDay)
         {
             
@@ -79,6 +80,7 @@ $(document).ready(function () {
         },
         editable:true,
         eventOverlap: false,
+        selectOverlap: false,
         eventResize: function(event, delta)
         {
             var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
@@ -106,6 +108,7 @@ $(document).ready(function () {
             })
         },
         eventOverlap: false,
+        selectOverlap: false,
         eventDrop: function(event, delta)
         {
             var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
@@ -132,6 +135,7 @@ $(document).ready(function () {
             })
         },
         eventOverlap: false,
+        selectOverlap: false,
         eventClick:function(event)
         {
             if(confirm("Are you sure you want to remove it?"))
