@@ -12,7 +12,8 @@ class FullCalendarController extends Controller
 {
     public function index(Request $request, $id)
     {
-		//$userid = Auth::id();
+		$userid = Auth::id();
+		//dd($userid);
 
     	if($request->ajax())
     	{
@@ -29,16 +30,19 @@ class FullCalendarController extends Controller
 
     public function action(Request $request)
     {
-		//$userid = Auth::id();
-
+		$userid = Auth::id();
+		//dd($userid);
     	if($request->ajax())
     	{
     		if($request->type == 'add')
     		{
+
     			$event = Event::create([
     				'title'		=>	$request->title,
 					'room'		=>  $request->room,
-					//'userid'	=>  $userid,
+					'userid'	=> 	$userid,
+					//'userid'	=> Auth::id(),
+					//'userid'	=>  $request->$userid,
     				'start'		=>	$request->start,
     				'end'		=>	$request->end
     			]);
