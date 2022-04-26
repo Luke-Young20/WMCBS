@@ -55,7 +55,7 @@ $(document).ready(function () {
             
             var title = prompt('Event Title:');
             var room = prompt('Enter Room');
-           /*  var userid = event.userid; */
+            var userid = '2';
             if(title)
             {
                 var start = $.fullCalendar.formatDate(start, 'Y-MM-DD HH:mm:ss');
@@ -68,7 +68,7 @@ $(document).ready(function () {
                     data:{
                         title: title,
                         room: room,
-                        /* userid: userid, */
+                        userid: userid, 
                         start: start,
                         end: end,
                         type: 'add'

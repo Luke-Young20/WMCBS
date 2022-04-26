@@ -40,7 +40,7 @@ class FullCalendarController extends Controller
     			$event = Event::create([
     				'title'		=>	$request->title,
 					'room'		=>  $request->room,
-					'userid'	=> 	$userid,
+					'userid'	=> 	$request->userid,
 					//'userid'	=> Auth::id(),
 					//'userid'	=>  $request->$userid,
     				'start'		=>	$request->start,
