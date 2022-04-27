@@ -95,6 +95,7 @@ $(document).ready(function () {
             var title = event.title;
             var room = event.room;
             var id = event.id;
+            var userid = {{ Auth::user()->id }}
             /* var userid = event.userid; */
 
             $.ajax({
@@ -103,7 +104,7 @@ $(document).ready(function () {
                 data:{
                     title: title,
                     room: room,
-               /*      userid: userid, */
+                     userid: userid, 
 
                     start: start,
                     end: end,
@@ -127,6 +128,7 @@ $(document).ready(function () {
             var title = event.title;
             var room = event.room;
             var id = event.id;
+            var userid = {{ Auth::user()->id }}
         /*     var userid = event.userid; */
             $.ajax({
                 url:"/fullcalendar/action",
@@ -134,7 +136,7 @@ $(document).ready(function () {
                 data:{
                     title: title,
                     room: room,
-           /*          userid: userid, */
+                     userid: userid, 
 
                     start: start,
                     end: end,
@@ -155,11 +157,13 @@ $(document).ready(function () {
             if(confirm("Are you sure you want to remove it?"))
             {
                 var id = event.id;
+                var userid = {{ Auth::user()->id }}
                 $.ajax({
                     url:"/fullcalendar/action",
                     type:"POST",
                     data:{
                         id:id,
+                        userid:userid,
                         type:"delete"
                     },
                     success:function(response)

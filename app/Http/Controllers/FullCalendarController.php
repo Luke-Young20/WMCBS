@@ -52,28 +52,34 @@ class FullCalendarController extends Controller
 
     		if($request->type == 'update')
     		{
-/* 				if($event->userid == Auth::id() OR Auth::user()->type == 'admin') {
- */ 
-    			$event = Event::find($request->id)->update([
+				$event = Event::find($request->id);
+ 				if($event->userid == Auth::id() OR Auth::user()->type == 'admin') {
+ 
+    			//$event = Event::find($request->id)->update([
+				  $event->update([
     				'title'		=>	$request->title,
 					'room'		=>  $request->room,
-					//'userid'	=>  $userid,
+					'userid'	=>  $request->userid,
     				'start'		=>	$request->start,
     				'end'		=>	$request->end
     			]);
 
     			return response()->json($event);
-				/* 				} else {
-					return response()->('message', 'You cannot update this as it is not your event');
-				} */
+				 				} else {
+					//return response()->('message', 'You cannot update this as it is not your event');
+					alert("You cannot delete this as it is not your event");
+
+				} 
 				
     		}
 
     		if($request->type == 'delete')
     		{
- 				if(Auth::user()->type == 'admin') {
-     			$event = Event::find($request->id)->delete();
-			
+				$event = Event::find($request->id);
+ 				if($event->userid == Auth::id() OR Auth::user()->type == 'admin') {
+     			//$event = Event::find($request->id)->delete();
+			      $event->delete();
+
     			return response()->json($event);
 
 				} else {
