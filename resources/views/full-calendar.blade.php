@@ -48,14 +48,18 @@ $(document).ready(function () {
         selectHelper: true,
         eventOverlap: false,
         selectOverlap: false,
+
         select:function(start, end, allDay)
         {
 
-            
-            
+            //$id = Auth;
+           // var userid = '2';
+            //var userid = $id;
+            var userid = {{ Auth::user()->id }}
             var title = prompt('Event Title:');
             var room = prompt('Enter Room');
-            var userid = '2';
+
+            //var userid = user.id;
             if(title)
             {
                 var start = $.fullCalendar.formatDate(start, 'Y-MM-DD HH:mm:ss');
