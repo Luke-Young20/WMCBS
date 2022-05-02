@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Rooms - @yield('title')</title>
-        <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/rooms.css') }}">
     </head>
     <body>
 
@@ -14,6 +14,7 @@
         <table>
 
             <tr>
+                <th></th>
                 <th>Rooms</th>
             </tr>
             

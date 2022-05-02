@@ -10,86 +10,78 @@ use App\Models\User;
 
 class FullCalendarController extends Controller
 {
-    public function index(Request $request, $id)
-    {
+	public function index(Request $request, $id)
+	{
 		$userid = Auth::id();
 		//dd($userid);
 
-    	if($request->ajax())
-    	{
-    		$data = Event::whereDate('start', '>=', $request->start)
-                       ->whereDate('end',   '<=', $request->end)
-					   ->where('room', '=', $id)
-					  // ->where('userid', '=', $userid)
-                       ->get(['id', 'title', 'room', /*'userid', */'start', 'end']);
-            return response()->json($data);
-    	}
+		if ($request->ajax()) {
+			$data = Event::whereDate('start', '>=', $request->start)
+				->whereDate('end',   '<=', $request->end)
+				->where('room', '=', $id)
+				// ->where('userid', '=', $userid)
+				->get(['id', 'title', 'room', /*'userid', */ 'start', 'end']);
+			return response()->json($data);
+		}
 
-    	return view('full-calendar', ['id' => $id]);
-    }
+		return view('full-calendar', ['id' => $id]);
+	}
 
-    public function action(Request $request)
-    {
-		$userid = Auth::id();
+	public function action(Request $request)
+	{
 		//dd($userid);
-    	if($request->ajax())
-    	{
-    		if($request->type == 'add')
-    		{
+		if ($request->ajax()) {
+			if ($request->type == 'add') {
 
-    			$event = Event::create([
-    				'title'		=>	$request->title,
+				$event = Event::create([
+					'title'		=>	$request->title,
 					'room'		=>  $request->room,
-					'userid'	=> 	$request->userid,
-					//'userid'	=> Auth::id(),
-					//'userid'	=>  $request->$userid,
-    				'start'		=>	$request->start,
-    				'end'		=>	$request->end
-    			]);
+					'userid'	=> 	Auth::id(),
+					'start'		=>	$request->start,
+					'end'		=>	$request->end
+				]);
 
-    			return response()->json($event);
-    		}
-
-    		if($request->type == 'update')
-    		{
+				return response()->json([
+					'success' => true,
+					'data' => $event
+				]);
+			} else if ($request->type == 'update') {
 				$event = Event::find($request->id);
- 				if($event->userid == Auth::id() OR Auth::user()->type == 'admin') {
- 
-    			//$event = Event::find($request->id)->update([
-				  $event->update([
-    				'title'		=>	$request->title,
-					'room'		=>  $request->room,
-					'userid'	=>  $request->userid,
-    				'start'		=>	$request->start,
-    				'end'		=>	$request->end
-    			]);
+				if (!is_null($event) && ($event->userid == Auth::id() OR Auth::user()->type == 'admin')) {
+					$event->update([
+						'title'		=>	$request->title,
+						'room'		=>  $request->room,
+						// 'userid'	=>  Auth::id(),
+						'start'		=>	$request->start,
+						'end'		=>	$request->end
+					]);
 
-    			return response()->json($event);
-				 				} else {
-					//return response()->('message', 'You cannot update this as it is not your event');
-					alert("You cannot delete this as it is not your event");
-
-				} 
-				
-    		}
-
-    		if($request->type == 'delete')
-    		{
-				$event = Event::find($request->id);
- 				if($event->userid == Auth::id() OR Auth::user()->type == 'admin') {
-     			//$event = Event::find($request->id)->delete();
-			      $event->delete();
-
-    			return response()->json($event);
-
+					return response()->json([
+						'success' => true,
+						'data' => $event
+					]);
 				} else {
-					 alert("You cannot delete this as it is not your event");
+					return response()->json([
+						'success' => false,
+						'error' => 'You cannot update this as it is not your event'
+					]);
+				}
+			} else if ($request->type == 'delete') {
+				$event = Event::find($request->id);
 
-					//return response('You cannot delete this as it is not your event');
-				} 
-
+				if (!is_null($event) && ($event->userid == Auth::id() or Auth::user()->type == 'admin')) {
+					$event->delete();
+					return response()->json([
+						'success' => true,
+						'data' => $event
+					]);
+				} else {
+					return response()->json([
+						'success' => false,
+						'error' => 'You cannot delete this as it is not your event'
+					]);
+				}
 			}
-    	}
-    }
+		}
+	}
 }
-?>
