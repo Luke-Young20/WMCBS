@@ -12,7 +12,6 @@ class FullCalendarController extends Controller
 {
 	public function index(Request $request, $id)
 	{
-		$userid = Auth::id();
 
 		if ($request->ajax()) {
 			$data = Event::whereDate('start', '>=', $request->start)
@@ -35,6 +34,7 @@ class FullCalendarController extends Controller
 				$event = Event::create([
 					'title'		=>	$request->title,
 					'room'		=>  $request->room,
+					//gets the id of the logged in user
 					'userid'	=> 	Auth::id(),
 					'start'		=>	$request->start,
 					'end'		=>	$request->end
