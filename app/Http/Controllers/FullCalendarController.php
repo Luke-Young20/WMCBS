@@ -47,7 +47,7 @@ class FullCalendarController extends Controller
 				]);
 			} else if ($request->type == 'update') {
 				$event = Event::find($request->id);
-				if (!is_null($event) && ($event->userid == Auth::id() OR Auth::user()->type == 'admin')) {
+				if (!is_null($event) && ($event->userid == Auth::id() or Auth::user()->type == 'admin')) {
 					$event->update([
 						'title'		=>	$request->title,
 						'room'		=>  $request->room,

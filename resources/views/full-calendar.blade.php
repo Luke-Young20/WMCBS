@@ -156,8 +156,6 @@
                     var title = event.title;
                     var room = event.room;
                     var id = event.id;
-                    /* var userid = {{ Auth::user()->id }} */
-                    /*     var userid = event.userid; */
                     $.ajax({
                         url: "/fullcalendar/action",
                         type: "POST",
