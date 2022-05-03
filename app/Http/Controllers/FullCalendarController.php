@@ -13,14 +13,13 @@ class FullCalendarController extends Controller
 	public function index(Request $request, $id)
 	{
 		$userid = Auth::id();
-		//dd($userid);
 
 		if ($request->ajax()) {
 			$data = Event::whereDate('start', '>=', $request->start)
 				->whereDate('end',   '<=', $request->end)
+				//will only return if the roomid of the event is equal to the room selected
 				->where('room', '=', $id)
-				// ->where('userid', '=', $userid)
-				->get(['id', 'title', 'room', /*'userid', */ 'start', 'end']);
+				->get(['id', 'title', 'room', 'start', 'end']);
 			return response()->json($data);
 		}
 
@@ -29,7 +28,7 @@ class FullCalendarController extends Controller
 
 	public function action(Request $request)
 	{
-		//dd($userid);
+		
 		if ($request->ajax()) {
 			if ($request->type == 'add') {
 
@@ -47,11 +46,11 @@ class FullCalendarController extends Controller
 				]);
 			} else if ($request->type == 'update') {
 				$event = Event::find($request->id);
+				//Checking the event belongs to the user or that the user is an admin
 				if (!is_null($event) && ($event->userid == Auth::id() or Auth::user()->type == 'admin')) {
 					$event->update([
 						'title'		=>	$request->title,
 						'room'		=>  $request->room,
-						// 'userid'	=>  Auth::id(),
 						'start'		=>	$request->start,
 						'end'		=>	$request->end
 					]);
@@ -68,7 +67,7 @@ class FullCalendarController extends Controller
 				}
 			} else if ($request->type == 'delete') {
 				$event = Event::find($request->id);
-
+				//Checking the event belongs to the user or that the user is an admin
 				if (!is_null($event) && ($event->userid == Auth::id() or Auth::user()->type == 'admin')) {
 					$event->delete();
 					return response()->json([
